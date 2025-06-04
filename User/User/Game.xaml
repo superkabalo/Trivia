@@ -1,0 +1,298 @@
+﻿<Page x:Class="User.Game"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:User"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Game">
+
+    <Grid Background="#1b1448">
+        <Grid.RowDefinitions>
+            <!-- General grid row structure -->
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.075*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.075*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Background="#120D30">
+            <!-- Grid of the top of the page-->
+            <Grid.ColumnDefinitions>
+                <!-- Column for the leave button -->
+                <ColumnDefinition Width="0.15*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!-- Leave Game button -->
+            <Button BorderThickness="0"
+                    Content="Leave Game"
+                    Click="leaveGame_Click"
+                    Foreground="White"
+                    FontFamily="Montserrat"
+                    Cursor="Hand">
+                <!-- Set button colors -->
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#28AEED" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#278BEF" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <!-- Make button rounded -->
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Margin="7, 7, 7, 7"
+                                CornerRadius="10"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!-- Game page title -->
+            <TextBlock Text="GAME"
+                       FontFamily="Montserrat"
+                       Foreground="DarkGray"
+                       Grid.ColumnSpan="2"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="30"
+                       FontWeight="Bold" />
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.75*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!-- The question -->
+            <TextBlock x:Name="txtQuestion"
+                       FontFamily="Montserrat"
+                       Foreground="DarkGray"
+                       Grid.ColumnSpan="2"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="24"
+                       FontWeight="Medium" />
+
+            <Grid Grid.Row="1">  <!-- Grid for the possible answers-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.25*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="0.25*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.25*"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="0.25*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!-- The buttons for each possible answer -->
+                <Button BorderThickness="0"
+                        x:Name="firstAns"
+                        Click="firstAns_Click"
+                        Foreground="White"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        FontSize="18"
+                        Grid.Column="1"
+                        Grid.Row="1">
+                    <!-- Set button colors -->
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#DA34AE" />
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#C62DAE" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <!-- Make button rounded -->
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Margin="7, 7, 7, 7 "
+                                    CornerRadius="10"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button BorderThickness="0"
+                        x:Name="secondAns"
+                        Click="secondAns_Click"
+                        Foreground="White"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        FontSize="18"
+                        Grid.Column="2"
+                        Grid.Row="1">
+                    <!-- Set button colors -->
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#DA34AE" />
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#C62DAE" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <!-- Make button rounded -->
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Margin="7, 7, 7, 7 "
+                                    CornerRadius="10"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button BorderThickness="0"
+                        x:Name="thirdAns"
+                        Click="thirdAns_Click"
+                        Foreground="White"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        FontSize="18"
+                        Grid.Column="1"
+                        Grid.Row="2">
+                    <!-- Set button colors -->
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#DA34AE" />
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#C62DAE" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <!-- Make button rounded -->
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Margin="7, 7, 7, 7 "
+                                    CornerRadius="10"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button BorderThickness="0"
+                        x:Name="fourthAns"
+                        Click="fourthAns_Click"
+                        Foreground="White"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        FontSize="18"
+                        Grid.Column="2"
+                        Grid.Row="2">
+                    <!-- Set button colors -->
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#DA34AE" />
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#C62DAE" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <!-- Make button rounded -->
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Margin="7, 7, 7, 7 "
+                                    CornerRadius="10"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+            <!-- Grid for the relevant game info -->
+            <Grid Grid.Column="1"
+                  Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <!-- Each field's text block and its value text block -->
+                <TextBlock Text="Time Left: "
+                           Foreground="LightGreen"
+                           FontFamily="Montserrat"
+                           FontWeight="Medium"
+                           FontSize="26"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" />
+
+                <TextBlock x:Name="txtTimeLeft"
+                           Foreground="LightGreen"
+                           FontFamily="Montserrat"
+                           FontWeight="Medium"
+                           FontSize="26"
+                           Grid.Column="1"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" />
+
+                <TextBlock Text="Questions Left: "
+                           Foreground="DarkGray"
+                           FontFamily="Montserrat"
+                           FontWeight="Medium"
+                           FontSize="26"
+                           Grid.Row="1"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" />
+
+                <TextBlock x:Name="txtNumQuestionLeft"
+                           Foreground="DarkGray"
+                           FontFamily="Montserrat"
+                           FontWeight="Medium"
+                           FontSize="26"
+                           Grid.Row="1"
+                           Grid.Column="1"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" />
+
+                <TextBlock Text="Correct Answers: "
+                           Foreground="DarkGray"
+                           FontFamily="Montserrat"
+                           FontWeight="Medium"
+                           FontSize="26"
+                           Grid.Row="2"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" />
+
+                <TextBlock x:Name="txtCorrectAnswers"
+                           Foreground="DarkGray"
+                           FontFamily="Montserrat"
+                           FontWeight="Medium"
+                           FontSize="26"
+                           Grid.Row="2"
+                           Grid.Column="1"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

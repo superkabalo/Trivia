@@ -1,0 +1,249 @@
+﻿<Page x:Class="User.SignUp"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Sign Up">
+
+    <Grid Background="#1b1448">
+        <Grid.RowDefinitions>
+            <!-- General grid row structure -->
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.15*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Background="#120D30">
+            <!-- Grid of the top of the page-->
+            <Grid.ColumnDefinitions>
+                <!-- Column for the return button -->
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!-- Return button -->
+            <Button BorderThickness="0"
+                    Content="Return"
+                    Foreground="White"
+                    FontFamily="Montserrat"
+                    Cursor="Hand"
+                    Click="ReturnBtn_Click">
+                <!-- Set button colors -->
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#28AEED" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#278BEF" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <!-- Make button rounded -->
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Margin="7, 7, 7, 7"
+                                CornerRadius="10"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!-- Sign Up page title -->
+            <TextBlock Text="SIGN UP"
+                       FontFamily="Montserrat"
+                       Foreground="DarkGray"
+                       Grid.ColumnSpan="2"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="30"
+                       FontWeight="Bold" />
+        </Grid>
+        <Grid Grid.Row="1">  <!-- Grid for an error message if signup was unsuccessful -->
+            <TextBlock x:Name="txtSignupError"
+                       Foreground="Red"
+                       FontFamily="Montserrat"
+                       FontSize="18"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center" />
+        </Grid>
+        <Grid Grid.Row="2">
+            <!--  Grid for the user credentials -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2.5*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <!-- Stack panel of the user credentials in the left of the page -->
+            <StackPanel Grid.Column="1"
+                        Orientation="Vertical">
+
+                <!-- Text block and  a text box for each field -->
+                <TextBlock Text="Username"
+                           Foreground="DarkGray"
+                           FontFamily="Montserrat"
+                           FontWeight="Medium"
+                           FontSize="18" />
+
+                <TextBox x:Name="txtUsername"
+                         Text="{Binding username, Mode=TwoWay}"
+                         FontFamily="Montserrat"
+                         Background="Transparent"
+                         Foreground="White"
+                         CaretBrush="LightGray"
+                         BorderBrush="DarkGray"
+                         BorderThickness="0,0,0,2"
+                         Height="28"
+                         VerticalContentAlignment="Center" />
+
+                <TextBlock Text="Password"
+                           Foreground="DarkGray"
+                           FontFamily="Montserrat"
+                           FontWeight="Medium"
+                           FontSize="18"
+                           Margin="0,30,0,0" />
+
+                <TextBox x:Name="txtPassword"
+                         Text="{Binding password, Mode=TwoWay}"
+                         FontFamily="Montserrat"
+                         Background="Transparent"
+                         Foreground="White"
+                         CaretBrush="LightGray"
+                         BorderBrush="DarkGray"
+                         BorderThickness="0,0,0,2"
+                         Height="28"
+                         VerticalContentAlignment="Center" />
+
+                <TextBlock Text="Email"
+                           Foreground="DarkGray"
+                           FontFamily="Montserrat"
+                           FontWeight="Medium"
+                           FontSize="18"
+                           Margin="0,30,0,0" />
+
+                <TextBox x:Name="txtEmail"
+                         Text="{Binding email, Mode=TwoWay}"
+                         FontFamily="Montserrat"
+                         Background="Transparent"
+                         Foreground="White"
+                         CaretBrush="LightGray"
+                         BorderBrush="DarkGray"
+                         BorderThickness="0,0,0,2"
+                         Height="28"
+                         VerticalContentAlignment="Center" />
+            </StackPanel>
+            <!-- Stack panel of the user credentials in the right of the page -->
+            <StackPanel Grid.Column="3"
+                        Orientation="Vertical">
+                <!-- Text block and  a text box for each field -->
+                <TextBlock Text="Address"
+                           Foreground="DarkGray"
+                           FontFamily="Montserrat"
+                           FontWeight="Medium"
+                           FontSize="18" />
+
+                <TextBox x:Name="txtAddress"
+                         Text="{Binding address, Mode=TwoWay}"
+                         FontFamily="Montserrat"
+                         Background="Transparent"
+                         Foreground="White"
+                         CaretBrush="LightGray"
+                         BorderBrush="DarkGray"
+                         BorderThickness="0,0,0,2"
+                         Height="28"
+                         VerticalContentAlignment="Center" />
+
+                <TextBlock Text="Phone Number"
+                           Foreground="DarkGray"
+                           FontFamily="Montserrat"
+                           FontWeight="Medium"
+                           FontSize="18"
+                           Margin="0,30,0,0" />
+
+                <TextBox x:Name="txtPhoneNumber"
+                         Text="{Binding phoneNumber, Mode=TwoWay}"
+                         FontFamily="Montserrat"
+                         Background="Transparent"
+                         Foreground="White"
+                         CaretBrush="LightGray"
+                         BorderBrush="DarkGray"
+                         BorderThickness="0,0,0,2"
+                         Height="28"
+                         VerticalContentAlignment="Center" />
+
+                <TextBlock Text="Birth Date"
+                           Foreground="DarkGray"
+                           FontFamily="Montserrat"
+                           FontWeight="Medium"
+                           FontSize="18"
+                           Margin="0,30,0,0" />
+
+                <TextBox x:Name="txtBirthDate"
+                         Text="{Binding birthDate, Mode=TwoWay}"
+                         FontFamily="Montserrat"
+                         Background="Transparent"
+                         Foreground="White"
+                         CaretBrush="LightGray"
+                         BorderBrush="DarkGray"
+                         BorderThickness="0,0,0,2"
+                         Height="28"
+                         VerticalContentAlignment="Center" />
+            </StackPanel>
+            <!-- Grid for the Sign Up button -->
+            <Grid Grid.Row="3"
+                  Grid.Column="1"
+                  Grid.ColumnSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                    <!-- Column for centering the Sign Up button -->
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.4*"></RowDefinition>
+                    <!-- Row for placing the Sign Up button closer to the login credentials-->
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <!-- Sign Up button -->
+                <Button BorderThickness="0"
+                        Content="Sign Up!"
+                        Click="SignUpButton_Click"
+                        Foreground="White"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Grid.Column="1">
+                    <!-- Set button colors -->
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#DA34AE" />
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#C62DAE" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <!-- Make button rounded -->
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Margin="7, 7, 7, 7 "
+                                    CornerRadius="10"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,33 @@
+#pragma once
+#include <vector>
+
+typedef std::vector<unsigned char> Buffer;	// define Buffer type
+
+enum RequestId // request codes
+{
+	LOGIN_REQ = 10,
+	SIGNUP_REQ = 12
+};
+enum ResponseId	// resposnse codes
+{
+	LOGIN_RES = 11,
+	SIGNUP_RES = 13,
+	ERROR_RES = 99
+};
+// possible response contents
+#define SUCCESS 1
+#define ERROR_MSG "ERROR"
+// protocol related constants
+#define DATA_BEGIN 5	// index of data beginning in request
+#define DATA_LEN_BEGIN 1	// index of data length beginnning in request
+// generel constants
+#define BUFFER_SIZE 1024
+#define BYTE_SIZE 8	 // byte size in bits
+#define MAX_BYTE_VALUE 0xFF	// maximum value of a byte
+#define EMPTY 0
+#define INC 1
+#define ERROR -1
+#define FALSE 0
+#define EXIT "EXIT"
+#define CLIENT_DISCONNECT_EXCEPTION "Error while recieving from socket"s
+#define SERVER_DISCONNECT_CLIENT_EXCEPTION "Disconnected client from server because the communication is over"

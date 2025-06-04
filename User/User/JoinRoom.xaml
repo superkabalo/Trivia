@@ -1,0 +1,102 @@
+﻿<Page x:Class="User.JoinRoom"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:User"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Join Room">
+
+    <Grid Background="#1b1448">
+        <Grid.RowDefinitions>
+            <!-- General grid row structure -->
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.15*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Background="#120D30">
+            <!-- Grid of the top of the page-->
+            <Grid.ColumnDefinitions>
+                <!-- Column for the return button -->
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!-- Return button -->
+            <Button BorderThickness="0"
+                    Content="Return"
+                    Click="ReturnBtn_Click"
+                    Foreground="White"
+                    FontFamily="Montserrat"
+                    Cursor="Hand">
+                <!-- Set button colors -->
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#28AEED" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#278BEF" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <!-- Make button rounded -->
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Margin="7, 7, 7, 7"
+                                CornerRadius="10"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!-- JoinRoom page title -->
+            <TextBlock Text="JOIN ROOM"
+                       FontFamily="Montserrat"
+                       Foreground="DarkGray"
+                       Grid.ColumnSpan="2"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="30"
+                       FontWeight="Bold" />
+        </Grid>
+        <!-- Error message (in case there is one) -->
+        <TextBlock FontFamily="Montserrat"
+                   x:Name="txtError"
+                   Foreground="Red"
+                   Grid.Row="1"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="30"
+                   FontWeight="Bold" />
+        <Grid Grid.Row="2"> <!-- Grid for the rooms list -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!-- The rooms list -->
+            <ListView Background="#120D30"
+                      Foreground="White"
+                      Grid.Column="1"
+                      x:Name="RoomsListView"
+                      Width="auto"
+                      MouseDoubleClick="RoomsListView_MouseDoubleClick">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="id" Width="30" DisplayMemberBinding="{Binding id}"></GridViewColumn>
+                        <GridViewColumn Header="name" Width="200" DisplayMemberBinding="{Binding name}"></GridViewColumn>
+                        <GridViewColumn Header="num of questions" Width="120" DisplayMemberBinding="{Binding numOfQuestionsInGame}"></GridViewColumn>
+                        <GridViewColumn Header="time per question" Width="100" DisplayMemberBinding="{Binding timePerQuestion}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>

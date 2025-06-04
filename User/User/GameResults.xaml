@@ -1,0 +1,94 @@
+﻿<Page x:Class="User.GameResults"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:User"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Game Results">
+
+    <Grid Background="#1b1448">
+        <Grid.RowDefinitions>
+            <!-- General grid row structure -->
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.15*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Background="#120D30">
+            <!-- Grid of the top of the page-->
+            <Grid.ColumnDefinitions>
+                <!-- Column for the return button -->
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!-- Exit button -->
+            <Button BorderThickness="0"
+                    Content="Exit"
+                    Click="ExitButton_Click"
+                    Foreground="White"
+                    FontFamily="Montserrat"
+                    FontSize="16"
+                    Cursor="Hand">
+                <!-- Set button colors -->
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#28AEED" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#278BEF" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <!-- Make button rounded -->
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Margin="7, 7, 7, 7"
+                                CornerRadius="10"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!-- Game Results page title -->
+            <TextBlock Text="GAME RESULTS"
+               FontFamily="Montserrat"
+               Foreground="DarkGray"
+               Grid.ColumnSpan="2"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               FontSize="30"
+               FontWeight="Bold" />
+        </Grid>
+        <Grid Grid.Row="2">
+            <!-- Grid for the scores list -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!-- The scores list -->
+            <ListView Background="#120D30"
+                      Foreground="White"
+                      Grid.Column="1"
+                      x:Name="ScoreListView"
+                      Width="auto">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Username" Width="140" DisplayMemberBinding="{Binding username}"></GridViewColumn>
+                        <GridViewColumn Header="Correct Answers" Width="100" DisplayMemberBinding="{Binding correctAnswerCount}"></GridViewColumn>
+                        <GridViewColumn Header="Wrong Answers" Width="100" DisplayMemberBinding="{Binding wrongAnswerCount}"></GridViewColumn>
+                        <GridViewColumn Header="Avg. Answer Time (s)" Width="120" DisplayMemberBinding="{Binding averageAnswerTime}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>

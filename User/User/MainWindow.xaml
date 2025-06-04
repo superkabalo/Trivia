@@ -1,0 +1,259 @@
+﻿<Window x:Class="User.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Trivia" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None">
+    <Grid Background="#1b1448">
+        <Grid.RowDefinitions>
+            <!-- General grid row structure -->
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.05*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Background="#120D30">
+            <!-- Grid of the top of the page-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <!-- Column for the Exit button -->
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!-- Exit button -->
+            <Button BorderThickness="0"
+                    Content="Exit"
+                    Click="ExitBtn_Click"
+                    Foreground="White"
+                    FontFamily="Montserrat"
+                    Cursor="Hand"
+                    Grid.Column="3">
+                <!-- Set button colors -->
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#28AEED" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#278BEF" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <!-- Make button rounded -->
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Margin="7, 7, 7, 7"
+                                CornerRadius="10"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                                HorizontalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!-- Trivia page title -->
+            <TextBlock Text="TRIVIA"
+                       FontFamily="Montserrat"
+                       Foreground="DarkGray"
+                       Grid.ColumnSpan="4"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="30"
+                       FontWeight="Bold" />
+            <!-- Grid for the login and signup buttons -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <!-- Columns for the login and signup buttons -->
+                    <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <!-- Sign Up or Log Out button -->
+                <Button BorderThickness="0"
+                        x:Name="SignUpLogOutButton"
+                        Content="Sign Up!"
+                        Foreground="White"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Grid.Column="0"
+                        Click="SignUpLogOutBtn_Click">
+                    <!-- Set button colors -->
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#DA34AE" />
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#C62DAE" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <!-- Make button rounded -->
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Margin="7, 7, 7, 7 "
+                                    CornerRadius="10"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <!-- Log In button -->
+                <Button BorderThickness="0"
+                        x:Name="LogInButton"
+                        Content="Log In!"
+                        Foreground="White"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Grid.Column="1"
+                        Click="LogInBtn_Click">
+                    <!-- Set button colors -->
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#DA34AE" />
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#C62DAE" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <!-- Make button rounded -->
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Margin="7, 7, 7, 7 "
+                                    CornerRadius="10"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+        </Grid>
+        <!-- Grid for the other main menu options -->
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!-- Create Room button -->
+            <Button BorderThickness="0"
+                    x:Name="CreateRoomButton"
+                    Content="Create Room"
+                    Foreground="White"
+                    FontFamily="Montserrat"
+                    FontSize="20"
+                    FontWeight="Medium"
+                    Grid.Column="1"
+                    Click="CreateRoomBtn_Click"
+                    Opacity="0.5">
+                <!-- Set button colors -->
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#DA34AE" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#C62DAE" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <!-- Make button rounded -->
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Margin="7, 7, 7, 7 "
+                                CornerRadius="10"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!-- Join Room button -->
+            <Button BorderThickness="0"
+                    Content="Join Room"
+                    x:Name="JoinRoomButton"
+                    Foreground="White"
+                    FontFamily="Montserrat"
+                    FontSize="20"
+                    FontWeight="Medium"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Click="JoinRoomBtn_Click"
+                    Opacity="0.5">
+                <!-- Set button colors -->
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#DA34AE" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#C62DAE" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <!-- Make button rounded -->
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Margin="7, 7, 7, 7 "
+                                CornerRadius="10"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <!-- Statistics button -->
+            <Button BorderThickness="0"
+                    Content="Statistics"
+                    x:Name="StatisticsButton"
+                    Foreground="White"
+                    FontFamily="Montserrat"
+                    FontSize="20"
+                    FontWeight="Medium"
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    Click="StatisticsBtn_Click"
+                    Opacity="0.5">
+                <!-- Set button colors -->
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#DA34AE" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#C62DAE" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <!-- Make button rounded -->
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Margin="7, 7, 7, 7 "
+                                CornerRadius="10"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+        <!-- Main frame to navigate between pages -->
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="4" />
+    </Grid>
+</Window>
