@@ -1,4 +1,4 @@
-**Magshimim Trivia Project**
+# Magshimim Trivia Project
 
 This is my final project for the Advanced Principles course.
 The final grade was: 100.
